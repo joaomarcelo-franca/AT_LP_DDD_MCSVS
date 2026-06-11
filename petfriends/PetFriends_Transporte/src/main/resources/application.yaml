@@ -17,5 +17,19 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      group-id: transporte-group # Verificar isso
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  #      properties: Verificar isso!
+  #        spring.json.value.default.type: br.com.infnet.containerService.events.ContainerStatusEvent
+  #        spring.json.trusted.packages: br.com.infnet.containerService.events
+  #        spring.json.use.type.headers: false
+
 server:
   port: 8082

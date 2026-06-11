@@ -17,5 +17,20 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      group-id: almoxarifado-group # Verificar isso
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.projects.events.PedidoEmPreparacaoEvent
+#        spring.json.trusted.packages:  Verificar esse
+        spring.json.use.type.headers: false
+
 server:
   port: 8081
+

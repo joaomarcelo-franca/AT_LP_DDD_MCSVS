@@ -2,8 +2,14 @@ package com.projects.domain;
 
 import com.projects.domain.enums.StatusEntrega;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class Entrega {
 
     @Id
@@ -19,7 +25,7 @@ public class Entrega {
     @Column(nullable = false)
     private StatusEntrega status;
 
-    public void registrarSaide(){
+    public void registrarSaida(){
         this.status=StatusEntrega.EM_ROTA;
     }
 
@@ -31,4 +37,8 @@ public class Entrega {
         this.status=StatusEntrega.DEVOLVIDO;
     }
 
+    public Entrega(Long pedidoid, Endereco endereco) {
+        this.pedidoid = pedidoid;
+        this.endereco = endereco;
+    }
 }

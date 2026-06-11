@@ -2,8 +2,11 @@ package com.projects.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Embeddable
+@AllArgsConstructor
 public class Endereco {
 
     @Column(nullable = false)
@@ -21,5 +24,6 @@ public class Endereco {
     @Column(nullable = false, length = 9)
     private String cep;
 
-    // Regras de negocio na service
+    protected Endereco() {}
+
 }
