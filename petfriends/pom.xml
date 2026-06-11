@@ -12,6 +12,7 @@
     <modules>
         <module>PetFriends_Almoxarifado</module>
         <module>PetFriends_Transporte</module>
+        <module>PetFriends_Pedido</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

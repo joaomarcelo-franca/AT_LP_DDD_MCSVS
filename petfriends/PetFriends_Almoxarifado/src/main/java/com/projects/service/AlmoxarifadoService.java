@@ -19,12 +19,12 @@ public class AlmoxarifadoService {
         event.itens().forEach(item -> {
 
             ItemEstoque itemEstoque = itemEstoqueRepository
-                    .findByProdutoid(Long.parseLong(item.getProdutoId()))
-                    .orElseThrow(() -> new RuntimeException("Produto não encontrado: " + item.getProdutoId()));
+                    .findByProdutoid(Long.parseLong(item.produtoId()))
+                    .orElseThrow(() -> new RuntimeException("Produto não encontrado: " + item.produtoId()));
 
             Quantidade quantidadeNecessaria = new Quantidade(
-                    item.getQuantidade(),
-                    item.getUnidade()
+                    item.quantidade(),
+                    item.unidade()
             );
 
             itemEstoque.reservar(quantidadeNecessaria);
