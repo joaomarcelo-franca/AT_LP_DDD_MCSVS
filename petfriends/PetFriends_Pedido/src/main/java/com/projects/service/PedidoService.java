@@ -22,7 +22,7 @@ public class PedidoService {
 
         pedido.iniciarPreparacao();
         pedidoRepository.save(pedido);
-        kafkaService.sendPedidoEmPreparacao(pedido); // ← passa o pedido inteiro
+        kafkaService.sendPedidoEmPreparacao(pedido);
     }
 
     @Transactional
@@ -33,6 +33,6 @@ public class PedidoService {
 
         pedido.despachar();
         pedidoRepository.save(pedido);
-        kafkaService.sendPedidoDespachado(pedido); // ← passa o pedido inteiro
+        kafkaService.sendPedidoDespachado(pedido);
     }
 }

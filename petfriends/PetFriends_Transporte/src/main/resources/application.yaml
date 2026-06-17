@@ -26,10 +26,10 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-  #      properties: Verificar isso!
-  #        spring.json.value.default.type: br.com.infnet.containerService.events.ContainerStatusEvent
-  #        spring.json.trusted.packages: br.com.infnet.containerService.events
-  #        spring.json.use.type.headers: false
+      properties:
+        spring.json.value.default.type: com.projects.events.TransporteEmRotaEvent
+        spring.json.trusted.packages: com.projects.events
+        spring.json.use.type.headers: false
 
 server:
   port: 8082
