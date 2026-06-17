@@ -30,6 +30,9 @@ public class Quantidade {
     }
 
     public Quantidade(int valor, String unidade) {
+        if (valor < 0) {
+            throw new IllegalArgumentException("A quantidade não pode ser negativa.");
+        }
         this.valor = valor;
         this.unidade = unidade;
     }
