@@ -14,7 +14,8 @@ public class AlmoxarifadoKafkaListener {
 
     @KafkaListener(topics = "pedido-em-preparacao")
     public void receberPedidoEmPreparacao(PedidoEmPreparacaoEvent event){
-        System.out.println("Eventos recebido: " + event.toString());
+        System.out.println("[KAFKA - CONSUMER] Evento 'pedido-em-preparacao' recebido | pedidoId=" + event.pedidoId() + " | itens=" + event.itens().size());
         almoxarifadoService.processarPedidoEmPreparacao(event);
+        System.out.println("[KAFKA - CONSUMER] Pedido processado pelo almoxarifado com sucesso | pedidoId=" + event.pedidoId());
     }
 }

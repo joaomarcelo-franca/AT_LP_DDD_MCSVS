@@ -14,7 +14,8 @@ public class TransporteKafkaListener {
 
     @KafkaListener(topics = "transporte-em-rota")
     public void transporteEmRota(TransporteEmRotaEvent event) {
-        System.out.println("Evento recebido: " + event);
+        System.out.println("[KAFKA - CONSUMER] Evento 'transporte-em-rota' recebido | pedidoId=" + event.pedidoId() + " | cliente=" + event.clienteNome());
         transporteService.processarEntrega(event);
+        System.out.println("[KAFKA - CONSUMER] Entrega registrada com sucesso | pedidoId=" + event.pedidoId());
     }
 }

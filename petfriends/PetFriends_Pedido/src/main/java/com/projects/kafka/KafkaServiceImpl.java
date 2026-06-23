@@ -31,7 +31,9 @@ public class KafkaServiceImpl implements KafkaService {
                 itens
         );
 
+        System.out.println("[KAFKA - PRODUCER] Enviando evento 'pedido-em-preparacao' | pedidoId=" + pedido.getId() + " | itens=" + itens.size());
         kafkaTemplate.send("pedido-em-preparacao", pedido.getId(), event);
+        System.out.println("[KAFKA - PRODUCER] Evento 'pedido-em-preparacao' enviado com sucesso | pedidoId=" + pedido.getId());
     }
 
     @Override
@@ -46,7 +48,9 @@ public class KafkaServiceImpl implements KafkaService {
                 pedido.getEndereco().getCep()
         );
 
+        System.out.println("[KAFKA - PRODUCER] Enviando evento 'transporte-em-rota' | pedidoId=" + pedido.getId() + " | cliente=" + pedido.getClienteNome());
         kafkaTemplate.send("transporte-em-rota", pedido.getId(), event);
+        System.out.println("[KAFKA - PRODUCER] Evento 'transporte-em-rota' enviado com sucesso | pedidoId=" + pedido.getId());
     }
 
 }

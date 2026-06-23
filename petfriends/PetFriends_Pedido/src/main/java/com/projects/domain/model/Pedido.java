@@ -22,8 +22,11 @@ public class Pedido {
 
     private String clienteNome;
 
+    @Embedded
     private Endereco endereco;
 
+    @ElementCollection
+    @CollectionTable(name = "pedido_itens", joinColumns = @JoinColumn(name = "pedido_id"))
     private List<ItemPedido> itens = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)

@@ -37,6 +37,14 @@ public class Quantidade {
         this.unidade = unidade;
     }
 
+    public int getValor() {
+        return valor;
+    }
+
+    public String getUnidade() {
+        return unidade;
+    }
+
     protected  Quantidade() {
     }
 }
